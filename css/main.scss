@@ -1,8 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Be Vietnam Pro", "Segoe UI", sans-serif;
+  // font-size: 12pt;
+  // font-family: "Roboto", sans-serif;
+  // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 :root {
   --blue: #287bff;
@@ -15,11 +20,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-
-.container {
-  position: relative;
-  width: 100%;
-}
 .navigation {
   position: fixed;
   width: 300px;
@@ -29,6 +29,9 @@ body {
   transition: 0.5s;
   overflow: hidden;
 }
+.navigation.active {
+  width: 60px;
+}
 .navigation ul {
   position: absolute;
   top: 0;
@@ -37,14 +40,18 @@ body {
 }
 .navigation ul li {
   position: relative;
-  width: 200%;
+  width: 100%;
   list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
-.navigation ul li:hover {
+.navigation ul li:hover,
+.navigation ul li.hovered {
   background: var(--white);
-  a {
-    color: var(--blue);
-  }
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: var(--blue);
 }
 .navigation ul li:nth-child(1) {
   margin-bottom: 40px;
@@ -77,4 +84,154 @@ body {
   line-height: 60px;
   text-align: start;
   white-space: nowrap;
+  font-weight: 300;
+}
+/* curv outside */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  z-index: -1;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* main */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+  // padding-left: 40px;
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 70px;
+}
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.toggle {
+  position: relative;
+  width: 60px;
+  // height: 60px;
+  // background: #ccc;
+  display: flex;
+  justify-content: center;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+  label {
+    position: relative;
+    width: 100%;
+    input {
+      width: 100%;
+      height: 40px;
+      border-radius: 40px;
+      padding: 5px 0px;
+      padding-left: 35px;
+      outline: none;
+      border: 1px solid var(--black2);
+      // font-size: 14px;
+      // font-weight: 500;
+    }
+    ion-icon {
+      position: absolute;
+      top: 0px;
+      left: 10px;
+      font-size: 1.2em;
+    }
+  }
+}
+
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  .card {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    &:hover {
+      background: var(--blue);
+      .numbers,
+      .cardName,
+      .iconBx {
+        color: var(--white);
+      }
+    }
+    .numbers {
+      position: relative;
+      font-weight: 500;
+      font-size: 2.5em;
+      color: var(--blue);
+    }
+    .cardName {
+      color: var(--black2);
+      font-size: 1.1em;
+      margin-top: 5px;
+    }
+    .iconBx {
+      font-size: 3.5em;
+      color: var(--black2);
+    }
+  }
+}
+.details {
+  padding: 20px;
 }
