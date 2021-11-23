@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" -->
   <!-- integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous" /> -->
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css" />
   <link rel="stylesheet" href="./css/main.css">
   <title>Document</title>
 </head>
@@ -71,7 +72,7 @@
           </label>
         </div>
         <!-- userImg -->
-        <div class="user"><img src="./img/avatar1080.jpg" alt="img" /></div>
+        <div class="user"><img src="https://picsum.photos/60" alt="img" /></div>
       </div>
 
       <!-- cards -->
@@ -113,8 +114,8 @@
           </div>
         </div>
       </div>
-      <!-- order details list -->
       <div class="details">
+        <!-- order details list -->
         <div class="recentOrders">
           <div class="cardHeader">
             <h2>Recent Orders</h2>
@@ -152,7 +153,7 @@
                 <td>HP Laptop</td>
                 <td>$110</td>
                 <td>Due</td>
-                <td><span class="status inProgress">In progress</span></td>
+                <td><span class="status inprogress">In progress</span></td>
               </tr>
               <tr>
                 <td>Apple Watch</td>
@@ -176,7 +177,7 @@
                 <td>Denim Shirts</td>
                 <td>$110</td>
                 <td>Due</td>
-                <td><span class="status inProgress">In progress</span></td>
+                <td><span class="status inprogress">In progress</span></td>
               </tr>
               <tr>
                 <td>Casual Shoes</td>
@@ -194,11 +195,118 @@
                 <td>Denim Shirts</td>
                 <td>$110</td>
                 <td>Due</td>
-                <td><span class="status inProgress">In progress</span></td>
+                <td><span class="status inprogress">In progress</span></td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        <!-- New Customers -->
+        <div class="recentCustomers">
+          <div class="cardHeader">
+            <h2>Recent Customers</h2>
+          </div>
+          <table>
+            <tr>
+              <td>
+                <div class="imgBx">
+                  <img src="https://picsum.photos/60" alt="">
+                </div>
+              </td>
+              <td>
+                <h4>David
+                  <br><span>Italy</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="imgBx">
+                  <img src="https://picsum.photos/60" alt="">
+                </div>
+              </td>
+              <td>
+                <h4>Muhammed
+                  <br><span>India</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="imgBx">
+                  <img src="https://picsum.photos/60" alt="">
+                </div>
+              </td>
+              <td>
+                <h4>Amelia
+                  <br><span>France</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="imgBx">
+                  <img src="https://picsum.photos/60" alt="">
+                </div>
+              </td>
+              <td>
+                <h4>Olivia
+                  <br><span>USA</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="imgBx">
+                  <img src="https://picsum.photos/60" alt="">
+                </div>
+              </td>
+              <td>
+                <h4>Amit
+                  <br><span>Japan</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="imgBx">
+                  <img src="https://picsum.photos/60" alt="">
+                </div>
+              </td>
+              <td>
+                <h4>Александр
+                  <br><span>Российская Федерация</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="imgBx">
+                  <img src="https://picsum.photos/60" alt="">
+                </div>
+              </td>
+              <td>
+                <h4>Diana
+                  <br><span>Malaysia</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="imgBx">
+                  <img src="https://picsum.photos/60" alt="">
+                </div>
+              </td>
+              <td>
+                <h4>Amit
+                  <br><span>India</span>
+                </h4>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+
       </div>
     </div>
   </div>
@@ -212,6 +320,9 @@
     let toggle = document.querySelector('.toggle')
     let navigation = document.querySelector('.navigation')
     let main = document.querySelector('.main')
+
+    // navigation.classList.add('active')
+    // main.classList.add('active')
 
     toggle.onclick = function () {
       navigation.classList.toggle('active');
