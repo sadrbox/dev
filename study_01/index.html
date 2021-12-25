@@ -11,15 +11,37 @@
 
 <body>
   <div class="wrapper">
-    <button class="btn">Click 1</button>
-    <button class="btn">Click 2</button>
-    <button class="btn">Click 3</button>
-    <button class="btn">Click 4</button>
+    <img src="https://picsum.photos/200" alt="" srcset="">
+    <h2>Event</h2>
+    <button data-number="1" class="btn">Click <strong>1</strong></button>
+    <button data-number="2" class="btn">Click <strong>2</strong></button>
+    <button data-number="3" class="btn">Click <strong>3</strong></button>
+    <button data-number="4" class="btn">Click <strong>4</strong></button>
   </div>
   <script>
     const buttons = document.querySelectorAll('.btn')
-    console.log(buttons)
 
+    const handleClick = (event) => {
+      console.log("target >", event.target);
+      console.log("currentget >", event.currentTarget);
+      console.log(event.target === event.currentTarget)
+      // event.stopPropagation();
+    }
+
+    window.addEventListener('click', function (eevent) {
+      console.log('Window Click!', event.target)
+      event.stopPropagation();
+    }, { capture: true })
+
+    buttons.forEach(button => {
+      button.addEventListener('click', handleClick)
+    })
+
+    const img = document.querySelector('img');
+    img.addEventListener('mouseover', function (event) {
+      console.log(event.currentTarget);
+      console.log(this);
+    })
   </script>
 </body>
 
